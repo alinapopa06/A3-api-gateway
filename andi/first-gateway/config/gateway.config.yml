@@ -4,9 +4,15 @@ admin:
   port: 9876
   host: localhost
 apiEndpoints:
-  api:
+  profile-api:
     host: localhost
-    paths: '/profile'
+    path: '/profile'
+  tasklist-api:
+    host: localhost
+    path: '/tasklist'
+  task-api:
+    host: localhost
+    path: '/tasklist/:id/task'
 serviceEndpoints:
   httpbin:
     url: 'http://5ca9ed1469c15c0014849041.mockapi.io'
@@ -22,7 +28,9 @@ policies:
 pipelines:
   default:
     apiEndpoints:
-      - api
+      - profile-api
+      - tasklist-api
+      - task-api
     policies:
     # Uncomment `key-auth:` when instructed to in the Getting Started guide.
     # - key-auth:
