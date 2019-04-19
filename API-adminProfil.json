@@ -1,0 +1,102 @@
+{
+    "Profile": {
+        "your-data": {
+            "get": {
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": {
+                "username": "",
+                "userId": "",
+                "email": "",
+                "thumbnail": "",
+                "preferences": [
+                    {
+                        "time-of-day": {
+                            "morning": "dificulty : ||relaxed||tired||focused",
+                            "afternoon": "dificulty : ||relaxed||tired||focused",
+                            "evening": "dificulty : ||relaxed||tired||focused"
+                        }
+                    }
+                ],
+                "job": {
+                    "name": "",
+                    "function": "",
+                    "category": ""
+                },
+                "profile-description": "",
+                "ongoing-tasks-number": "",
+                "done-tasks-number": ""
+            }
+        },
+
+        "edit-profile": {
+            "try": {
+                "get": {
+                "cookie-session": "",
+                "user-id": ""
+                },
+                "post": {
+                    "response": "You have no right to edit this!",
+                    "sucess": "true/false"
+                }
+            },
+            "succesfull": {
+                "get": {
+                    "cookie-session": "",
+                    "user-id": "",
+                    "username": "",
+                    "userId": "",
+                    "email": "",
+                    "thumbnail": "",
+                    "job": {
+                        "name": "",
+                        "function": "",
+                        "category": ""
+                    },
+                    "profile-description": ""
+                },
+                "post": {
+                    "response": "",
+                    "errors": [
+                        {
+                            "error": ""
+                        }
+                    ]
+                }
+            }
+        },
+
+        "edit-preferences": {
+            "try": {
+                "get": {
+                    "cookie-session": "",
+                    "user-id": ""
+                },
+                "post": {
+                    "response": "You have no right to edit this!",
+                    "sucess": "true/false"
+                }
+            },
+            "sucessfull": {
+                "get": {
+                    "cookie-session": "",
+                    "user-id": "",
+                    "time-of-day": {
+                        "morning": "dificulty : ||relaxed||tired||focused",
+                        "afternoon": "dificulty : ||relaxed||tired||focused",
+                        "evening": "dificulty : ||relaxed||tired||focused"
+                    }
+                }, 
+                "post": {
+                    "response": "",
+                    "errors": [
+                        {
+                            "error": ""
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
