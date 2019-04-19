@@ -1,0 +1,387 @@
+{
+    "view": {
+        "view-project-try-post": {
+            "get": {
+                "project-id": "",
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": {
+                "response": "You have no right to edit this!",
+                "sucess": "true/false",
+                "obj": {
+                    "id": "",
+                    "name": "",
+                    "category": "",
+                    "departament": "",
+                    "deadline": { "date": "", "time": "" },
+                    "creator": "",
+                    "description": "",
+                    "priority": "",
+                    "status": "doing||done||todo",
+                    "participants": [
+                        {
+                            "id": "",
+                            "thumbnail": "",
+                            "role": "scrum master||scrum"
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task-id": "",
+                            "user-id": "",
+                            "deadline": { "date": "", "time": "" },
+                            "status": "",
+                            "priority": ""
+                        }
+                    ],
+                    "commits": {
+                        "userId": "",
+                        "username": "",
+                        "changes": "",
+                        "date": ""
+                    }
+                }
+            }
+        },
+
+        "view-task-try-post": {
+            "task-id": "",
+            "cookie-session": "",
+            "user-id": ""
+        },
+        "view-task-try-get": {
+            "response": "You have no right to edit this!",
+            "sucess": "true/false",
+            "obj": {
+                "id": "",
+                "name": "",
+                "category": "",
+                "departament": "",
+                "deadline": { "date": "", "time": "" },
+                "creator": "",
+                "description": "",
+                "priority": "",
+                "status": "",
+                "participants": [
+                    {
+                        "id": "",
+                        "thumbnail": "",
+                        "role": ""
+                    }
+                ],
+                "sub-tasks": [
+                    {
+                        "subtask-id": "",
+                        "deadline": { "date": "", "time": "" },
+                        "status": "",
+                        "priority": "",
+                        "participants": [
+                            {
+                                "id": "",
+                                "thumbnail": "",
+                                "role": ""
+                            }
+                        ]
+                    }
+                ],
+                "dependencies": [
+                    {
+                        "task-id": "",
+                        "deadline": { "date": "", "time": "" },
+                        "status": "",
+                        "priority": "",
+                        "participants": [
+                            {
+                                "id": "",
+                                "thumbnail": "",
+                                "role": ""
+                            }
+                        ]
+                    }
+                ],
+                "reverse-dependencies": [
+                    {
+                        "task-id": "",
+                        "deadline": { "date": "", "time": "" },
+                        "status": "",
+                        "priority": "",
+                        "participants": [
+                            {
+                                "id": "",
+                                "thumbnail": "",
+                                "role": ""
+                            }
+                        ]
+                    }
+                ],
+                "commits": {
+                    "userId": "",
+                    "username": "",
+                    "changes": "",
+                    "date": ""
+                }
+            }
+        },
+        "view-subtask-try-post": {
+            "task-id": "",
+            "cookie-session": "",
+            "user-id": ""
+        },
+        "view-subtask-try-get": {
+            "response": "You have no right to edit this!",
+            "sucess": "true/false",
+            "obj": {
+                "id": "",
+                "name": "",
+                "category": "",
+                "departament": "",
+                "deadline": { "date": "", "time": "" },
+                "creator": "",
+                "description": "",
+                "priority": "",
+                "status": "",
+                "participants": [
+                    {
+                        "id": "",
+                        "thumbnail": "",
+                        "role": ""
+                    }
+                ],
+                "sub-tasks": [
+                    {
+                        "subtask-id": "",
+                        "deadline": { "date": "", "time": "" },
+                        "status": "",
+                        "priority": "",
+                        "participants": [
+                            {
+                                "id": "",
+                                "thumbnail": "",
+                                "role": ""
+                            }
+                        ]
+                    }
+                ],
+                "dependencies": [
+                    {
+                        "task-id": "",
+                        "deadline": { "date": "", "time": "" },
+                        "status": "",
+                        "priority": "",
+                        "participants": [
+                            {
+                                "id": "",
+                                "thumbnail": "",
+                                "role": ""
+                            }
+                        ]
+                    }
+                ],
+                "reverse-dependencies": [
+                    {
+                        "task-id": "",
+                        "deadline": { "date": "", "time": "" },
+                        "status": "",
+                        "priority": "",
+                        "participants": [
+                            {
+                                "id": "",
+                                "thumbnail": "",
+                                "role": ""
+                            }
+                        ]
+                    }
+                ],
+                "commits": {
+                    "userId": "",
+                    "username": "",
+                    "changes": "",
+                    "date": ""
+                }
+            }
+        },
+        "add-participants": {
+            "post": {
+                "id": "idul taskului sau subtaskului",
+                "users-id": [],
+                "type": "task||subtask"
+            },
+            "get": {
+                "response": "",
+                "errors": [
+                    {
+                        "error": ""
+                    }
+                ]
+            }
+        },
+        "add-dependencies": {
+            "post": [
+                {
+                    "id": "",
+                    "type": ""
+                }
+            ],
+            "get": {
+                "response": "",
+                "errors": [
+                    {
+                        "error": ""
+                    }
+                ]
+            }
+        }
+    },
+
+    "delete": {
+        "get": {
+            "delete-id": "",
+            "type": "project||task||subtask",
+            "cookie-session": "",
+            "user-id": ""
+        },
+        "post": {
+            "response": "",
+            "errors": [
+                {
+                    "error": ""
+                }
+            ]
+        }
+    },
+
+    "overview": {
+        "tasks-today": {
+            "get": {
+                "project-id": "",
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": [
+                {
+                    "id": "",
+                    "name": "",
+                    "category": "",
+                    "type": "",
+                    "time-of-day": "morning||afternoon||evening",
+                    "dificulty": "",
+                    "description": "",
+                    "status": "",
+                    "deadline": { "date": "", "time": "" },
+                    "is-subtask": ""
+                }
+            ]
+        },
+        "weekly-tasks": {
+            "get": {
+                "project-id": "",
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": [
+                {
+                    "id": "",
+                    "name": "",
+                    "category": "",
+                    "type": "",
+                    "time-of-day": "morning||afternoon||evening",
+                    "dificulty": "",
+                    "description": "",
+                    "status": "",
+                    "deadline": { "date": "", "time": "" },
+                    "is-subtask": ""
+                }
+            ]
+        },
+        "monthly-tasks": {
+            "get": {
+                "project-id": "",
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": [
+                {
+                    "id": "",
+                    "name": "",
+                    "category": "",
+                    "type": "",
+                    "time-of-day": "morning||afternoon||evening",
+                    "dificulty": "",
+                    "description": "",
+                    "status": "",
+                    "deadline": { "date": "", "time": "" },
+                    "is-subtask": ""
+                }
+            ]
+        },
+        "yearly-tasks": {
+            "get": {
+                "project-id": "",
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": [
+                {
+                    "id": "",
+                    "name": "",
+                    "category": "",
+                    "type": "",
+                    "time-of-day": "morning||afternoon||evening",
+                    "dificulty": "",
+                    "description": "",
+                    "status": "",
+                    "deadline": { "date": "", "time": "" },
+                    "is-subtask": ""
+                }
+            ]
+        },
+        "rearange-tasks": {
+            "TODO": ""
+        }
+    },
+
+
+    "Profile": {
+        "your-projects": {
+            "get": {
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": [
+                {
+                    "id": "",
+                    "name": "",
+                    "category": "",
+                    "type": "",
+                    "assigned-for": "",
+                    "dificulty": "",
+                    "description": "",
+                    "status": "",
+                    "deadline": ""
+                }
+            ]
+        },
+        "your-tasks": {
+            "get": {
+                "project-id": "",
+                "cookie-session": "",
+                "user-id": ""
+            },
+            "post": [
+                {
+                    "id": "",
+                    "name": "",
+                    "category": "",
+                    "type": "",
+                    "assigned-for": "",
+                    "dificulty": "",
+                    "description": "",
+                    "status": "",
+                    "deadline": { "date": "", "time": "" },
+                    "is-subtask": ""
+                }
+            ]
+        }
+    }
+}
