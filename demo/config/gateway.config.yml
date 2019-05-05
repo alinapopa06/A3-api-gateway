@@ -7,6 +7,8 @@ apiEndpoints:
   auth-api:
     host: localhost
     path: '/auth'
+    prependPath:  false
+    ignorePath:   true
   all-tasks-api:
     host: localhost
     path: '/tasks'
@@ -16,9 +18,13 @@ apiEndpoints:
   
 serviceEndpoints:
   authEnd:
-    url: 'http://localhost:8089'
+    urls: 
+      - 'http://localhost:8089'
+      - 'http://localhost:8089'
   tasksEnd:
-    url: 'http://vvtsoft.ddns.net:5123'
+    urls: 
+      - 'http://vvtsoft.ddns.net:5123'
+      - 'http://vvtsoft.ddns.net:5123'
 policies:
   - basic-auth
   - cors
