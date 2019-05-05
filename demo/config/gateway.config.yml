@@ -1,12 +1,24 @@
 http:
-  port: 8080
+  port: 8081
 admin:
   port: 9876
   host: localhost
 apiEndpoints:
-  # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/apiEndpoints
+  auth-api:
+    host: localhost
+    path: '/auth'
+  all-tasks-api:
+    host: localhost
+    path: '/tasks'
+  assigner-api:
+    host: localhost
+    path: '/assigner'
+  
 serviceEndpoints:
-  # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/serviceEndpoints
+  authEnd:
+    url: 'http://localhost:8089'
+  tasksEnd:
+    url: 'http://vvtsoft.ddns.net:5123'
 policies:
   - basic-auth
   - cors
@@ -17,4 +29,24 @@ policies:
   - proxy
   - rate-limit
 pipelines:
-  # see: https://www.express-gateway.io/docs/configuration/gateway.config.yml/pipelines
+  auth:
+    apiEndpoints:
+      - auth-api
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: authEnd 
+              changeOrigin: true
+  tasks:
+    apiEndpoints:
+      - all-tasks-api
+      - assigner-api
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: tasksEnd 
+              changeOrigin: true
