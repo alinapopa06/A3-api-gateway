@@ -1,0 +1,110 @@
+http:
+  port: 8080
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+
+  get-pref:
+    host: localhost
+    paths: '/get-preferences/:id'
+  edit-pref:
+    host: localhost
+    paths: '/edit-preferences/:accId/:time/:pref'
+  delete-pref:
+    host: localhost
+    paths: '/delete-preferences/:userID'
+  add-pref:
+    host: localhost
+    paths: '/add-preferences/:userID/:morning/:afternoon/:evening'
+
+  get-profile:
+    host: localhost
+    paths: '/get-profile/:id'
+  edit-profile:
+    host: localhost
+    paths: '/edit-profile/:accId/:time/:pref'
+  delete-profile:
+    host: localhost
+    paths: '/delete-profile/:userID'
+  add-profile:
+    host: localhost
+    paths: '/add-profile/:userID/:nume/:prenume/:email/:parola/:data_inregistrare'
+  
+
+  try:
+    host: localhost
+    paths: '/try-get/:idEmployee'  
+  add:
+    host: localhost 
+    paths: '/add-underling/:idUnderling/:idSuperior/:position'
+  change-sup:
+    host: localhost 
+    paths: '/change-superior/:idUnderling/:idSuperior'
+  remove-und:
+    host: localhost 
+    paths: '/remove-underling/:idUnderling'
+  view:
+    host: localhost
+    paths: '/viewUnderlings/:userID'
+
+serviceEndpoints:
+  preferences:
+    url: 'http://104.199.20.255:8100/preferences/'
+  profile:
+    url: 'http://104.199.20.255:8100/profile/'
+  employees:
+    url: 'http://104.199.20.255:8099/employees/'
+  
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  preferences:
+    apiEndpoints:
+      - get-pref
+      - edit-pref
+      - delete-pref
+      - add-pref
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: preferences 
+              changeOrigin: true
+  employees:
+    apiEndpoints:
+      - try
+      - add
+      - change-sup
+      - remove-und
+      - view
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: employees 
+              changeOrigin: true
+  profile:
+    apiEndpoints:
+      - get-profile
+      - edit-profile
+      - delete-profile
+      - add-profile
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: profile 
+              changeOrigin: true           
+
+  
